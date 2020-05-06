@@ -1,0 +1,33 @@
+@media (max-width: 768px){
+	.container,
+	.col-12{
+		padding: 0;
+	}
+}
+
+.tarjeta{
+	padding: 2rem 0;
+	width: 340px;
+	height: auto;
+	box-shadow: 0 5px 20px -2px;
+	display: grid;
+	grid-row-gap: 1rem;
+	margin: 2rem auto 2rem auto;
+
+	form{
+		margin: auto;
+	}
+	button,
+	form .form-group{
+		width: 100%;
+	}
+
+	@media(min-width: 768px){
+		width: 640px;
+
+		button,
+		form .form-group{
+			width: unset;
+		}
+	}
+}
