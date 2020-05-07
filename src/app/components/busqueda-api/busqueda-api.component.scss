@@ -2,7 +2,7 @@
 	display: grid;
 	width: 340px;
 	height: 200px;
-	padding: 2rem 0;
+	padding: 1rem;
 	grid-row-gap: 1rem;
 	margin: 2rem auto 4rem auto;
 	border-radius: 15px;
@@ -23,6 +23,7 @@
 	}
 
 	@media(min-width: 768px){
+		padding: 2rem 0;
 		width: 640px;
 
 		button,
@@ -106,4 +107,13 @@
 
 div.loading{
 	margin: auto;
+}
+
+.alert-heading{
+	display: grid;
+	grid-template-columns: 1fr 30px;
+
+	button{
+		height: 30px;
+	}
 }

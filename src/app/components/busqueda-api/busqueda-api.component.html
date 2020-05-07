@@ -7,9 +7,9 @@
 					<h3 class="text-center">Realice su búsqueda</h3>
 					<form (ngSubmit)="buscarPorNombre(datos.media.param)" class="form-inline">
 						<div class="form-group">
-							<input type="text" class="form-control" [(ngModel)]="datos.media.param" name="nombre" placeholder="Ej: Tobey Maguire">
+							<input type="text" class="form-control form-control-lg" [(ngModel)]="datos.media.param" name="nombre" placeholder="Ej: Tobey Maguire">
 						</div>
-						<button type="submit" class="btn btn-primary">Buscar</button>
+						<button type="submit" class="btn btn-lg btn-primary">Buscar</button>
 					</form>
 				</ng-container>
 				<ng-container *ngIf="loading">
