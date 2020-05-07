@@ -1,17 +1,10 @@
-@media (max-width: 768px){
-	.container,
-	.col-12{
-		padding: 0;
-	}
-}
-
 .tarjeta{
 	display: grid;
 	width: 340px;
 	height: 200px;
 	padding: 2rem 0;
 	grid-row-gap: 1rem;
-	margin: 2rem auto 2rem auto;
+	margin: 2rem auto 4rem auto;
 	border-radius: 15px;
 	box-shadow: 0 5px 20px -2px;
 	background-color: #fff;
@@ -47,8 +40,34 @@
 }
 .dato{
 	display: grid;
-	height: 4rem;
-	grid-template-columns: 120px 1fr 100px;
+	min-height: 4rem;
+	grid-template-columns: 120px 1fr 70px;
+
+	span{
+		display: none;
+	}
+
+	@media (max-width: 767px){
+		width: 300px;
+		grid-template-columns: 1fr 70px;
+		margin: auto;
+
+		&:first-child{
+			display: none !important;
+		}
+
+		>.name{
+			grid-column: 1/-1;
+			grid-row: 1/2;
+			padding: 0 1rem !important;
+		}
+
+		span{
+			display: inline-block;
+			margin: 1rem 0;
+			font-weight: bold;
+		}
+	}
 
 	&:nth-child(even){
 		background-color: #e9ecef;
@@ -77,6 +96,13 @@
 	    margin: auto;
 	}
 }
+
+@media (max-width: 768px){
+	.col-12{
+		padding: 0;
+	}
+}
+
 
 div.loading{
 	margin: auto;

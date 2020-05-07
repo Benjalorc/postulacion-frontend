@@ -30,8 +30,8 @@
 				</div>
 
 				<div class="dato" *ngFor="let res of datos.media.data">
-					<div class="id">{{res.id}}</div>
-					<div class="name">{{res.name}}</div>
+					<div class="id"><span>ID: </span> {{res.id}}</div>
+					<div class="name"><span>Nombre: </span> {{res.name}}</div>
 					<div class="service">
 						<img [src]="res.imagen">
 					</div>
