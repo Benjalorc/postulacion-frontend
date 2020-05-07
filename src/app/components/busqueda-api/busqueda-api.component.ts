@@ -103,4 +103,8 @@ export class BusquedaApiComponent implements OnInit {
 		this.loading = this.hold = false;
 		this.datos.media.subscripcion.unsubscribe();
 	}
+
+	cerrarMediaErr(){
+		this.datos.media.err = this.datos.media.data = null;
+	}
 }
