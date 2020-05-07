@@ -6,28 +6,78 @@
 }
 
 .tarjeta{
-	padding: 2rem 0;
-	width: 340px;
-	height: auto;
-	box-shadow: 0 5px 20px -2px;
 	display: grid;
+	width: 340px;
+	height: 200px;
+	padding: 2rem 0;
 	grid-row-gap: 1rem;
 	margin: 2rem auto 2rem auto;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px -2px;
+	background-color: #fff;
 
 	form{
 		margin: auto;
 	}
 	button,
-	form .form-group{
+	.form-group,
+	.form-group>input{
 		width: 100%;
+	}
+
+	.form-group{
+		margin-bottom: 1rem;
 	}
 
 	@media(min-width: 768px){
 		width: 640px;
 
 		button,
-		form .form-group{
+		.form-group{
 			width: unset;
+			margin: 0;
 		}
 	}
+}
+
+.listado{
+	display: grid;
+	padding: 3rem 0;
+	line-height: 180%;
+}
+.dato{
+	display: grid;
+	height: 4rem;
+	grid-template-columns: 120px 1fr 100px;
+
+	&:nth-child(even){
+		background-color: #e9ecef;
+	}
+	&:first-child{
+		font-weight: bold;
+
+		>.service{
+			text-align: center;
+		}
+	}
+
+	>.name{
+		padding: 0 2rem;
+	}
+	>.id{
+		padding: 0 1rem;
+	}
+	>*{
+		align-self: center;
+	}
+
+	img{
+		width: 50px;
+	    display: block;
+	    margin: auto;
+	}
+}
+
+div.loading{
+	margin: auto;
 }
