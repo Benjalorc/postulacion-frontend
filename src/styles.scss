@@ -29,3 +29,18 @@ body{
     transform: rotate(360deg);
   }
 }
+
+.alert{
+	transition: all 500ms;
+	animation: alert 500ms linear;
+}
+@keyframes alert{
+	0%{
+		opacity: 0;
+		bottom: 1rem;
+	}
+	100%{
+		opacity: 1;
+		bottom: 0;
+	}
+}
