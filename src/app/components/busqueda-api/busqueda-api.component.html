@@ -46,5 +46,14 @@
 			  <p class="mb-0">{{datos.media.err.text}}</p>
 			</div>
 		</div>
+		<div class="col-12 col-lg-10 offset-lg-1" *ngIf="hold && loading">
+			<div class="alert alert-info">
+			  <h4 class="alert-heading">Esta consulta pudiera demorar un poco</h4>
+			  <p class="mb-0">Espere mientras encontramos su búsqueda</p>
+			  <hr>
+			  <p class="mb-0">O cancele en cualquier momento y realice una nueva búsqueda</p>
+			  <button type="button" class="btn btn-danger" (click)="cancelarMedia()">Cancelar</button>
+			</div>
+		</div>
 	</div>
 </div>

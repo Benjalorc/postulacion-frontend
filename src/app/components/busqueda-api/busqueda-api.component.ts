@@ -11,14 +11,17 @@ export class BusquedaApiComponent implements OnInit {
 	media: any;
 	datos: {
 		media: {
+			subscripcion: any;
 			param: string;
 			data: any;
 			err: {
-				title: string,
-				text: string
+				title: string;
+				text: string;
 			};
 		}
 	};
+
+	hold: boolean;
 
 	loading: boolean;
 
@@ -27,6 +30,7 @@ export class BusquedaApiComponent implements OnInit {
 	ngOnInit() {
 		this.datos = {
 			media: {
+				subscripcion: null,
 				param: "",
 				data: null,
 				err: null
@@ -38,24 +42,42 @@ export class BusquedaApiComponent implements OnInit {
 	buscarPorNombre(nombre){
 		this.loading = true;
 		this.datos.media.data = [];
-		this.getApi.getMedia(nombre).subscribe(data=>{
+
+		let gone = true;
+		let tiempo = setTimeout(()=>{
+			if(gone) this.hold = true;
+		},5000);
+
+		this.datos.media.subscripcion = this.getApi.getMedia(nombre).subscribe(data=>{
+
+			this.datos.media.subscripcion.unsubscribe();
+
+			if(this.hold) this.hold = false;
+			else clearTimeout(tiempo);
 
 			this.asignarImagen(data);
-
 			this.datos.media.data = data;
 			this.datos.media.err = null;
-			this.loading = false;
+			this.loading = gone = false;
 		},
 		err=>{
+
+			this.datos.media.subscripcion.unsubscribe();
+
+			if(this.hold) this.hold = false;
+			else clearTimeout(tiempo);
+
+
 			setTimeout(()=>{
 				this.datos.media.data = [];
-				this.loading = false;
+				this.loading = gone = false;
 				this.datos.media.err = {
 					title: "No se pudo conectar con el API.",
 					text: "Verifique su conexión a internet y vuelva a intentar."
 				};
 			},1000);
 		});
+
 	}
 
 	asignarImagen(arr){
@@ -75,5 +97,10 @@ export class BusquedaApiComponent implements OnInit {
 			let index = servicios.findIndex((el)=> el == origen);
 			arr[i].imagen = images[index];
 		}
+	}
+
+	cancelarMedia(){
+		this.loading = this.hold = false;
+		this.datos.media.subscripcion.unsubscribe();
 	}
 }
