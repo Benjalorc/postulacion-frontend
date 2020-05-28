@@ -1,4 +1,4 @@
-# postulacion-frontend
+# Front para listado de búsqueda multimedia
 Web Test
 
 Este proyecto fué generado con [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1 en conjunto con la version 10.16.3 de Node.js y la version 6.9.0 de npm.
